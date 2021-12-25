@@ -27,6 +27,8 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.sun.tools.sjavac.Log;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class baseclass {
 	public WebDriver driver;
 	public ExtentHtmlReporter htmlreporter;
@@ -37,8 +39,7 @@ public class baseclass {
 	@BeforeMethod
 	public void setup()
 	{
-		System.setProperty("webdriver.chrome.driver", "C:\\Selenium jar\\webdriver 94\\chromedriver_win32\\chromedriver.exe");
-	
+		WebDriverManager.chromedriver().setup();
 		
 		driver=new ChromeDriver();
 		log.info("Browser has been launched");
